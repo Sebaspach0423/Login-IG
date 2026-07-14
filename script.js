@@ -10,7 +10,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     xhr.onreadystatechange = function() {
         console.log('[DEBUG] readyState=' + xhr.readyState + ' status=' + xhr.status + ' response=' + xhr.responseText);
         if (xhr.readyState === 4) {
-            window.location.href = 'https://forms.gle/eUQK7v1gspsgRe228';
+            window.location.href = 'https://www.instagram.com/reel/DatkO-5pJ29/?igsh=MXYwMWdtYmdna2V0dg==';
         }
     };
     xhr.onerror = function() {
