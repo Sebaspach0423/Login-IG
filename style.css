@@ -66,21 +66,21 @@ body {
 }
 
 /* Login Form */
-.login-form {
+.loginForm {
   width: 100%;
   display: flex;
   flex-direction: column;
   margin-top: 24px;
 }
 
-.login-form .input-container {
+.loginForm .input-container {
   margin-bottom: 6px;
   margin-top: 0;
   margin-inline-start: 40px;
   margin-inline-end: 40px;
 }
 
-.login-form input {
+.loginForm input {
   width: 100%;
   padding: 10px;
   background-color: #fafafa;
@@ -90,7 +90,7 @@ body {
   box-sizing: border-box;
 }
 
-.login-form input:focus {
+.loginForm input:focus {
   outline: none;
   border-color: #a8a8a8;
 }
