@@ -1,206 +1,234 @@
 * {
-    margin: 0;
-    padding: 0;
+    border: none;
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     background-color: #fafafa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
-    color: #262626;
 }
 
-.login-container {
+main {
+    height: 100vh;
+    margin: auto;
+    max-width: 935px;
+}
+
+a { 
+    text-decoration: none; 
+    cursor: pointer;
+}
+
+h1 { margin: 20px 0; }
+ul { list-style: none; }
+
+/**
+ * Flex rules
+ */
+
+.flex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 350px;
 }
 
-.login-box {
+.direction-column {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: normal;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.justify-content-center {
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.align-items-center {
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.flex-wrap {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+/**
+ *
+ */
+
+.panel {
     background-color: white;
     border: 1px solid #dbdbdb;
-    border-radius: 1px;
-    padding: 10px 0;
-    width: 100%;
     margin-bottom: 10px;
-    text-align: center;
+    padding: 10px;
 }
 
-.logo {
-    height: 51px;
-    margin: 36px 0 12px;
+#auth { max-width: 350px; }
+#mobile { max-width: 454px; }
+
+#mobile img {
+    height: 618px;
 }
 
-#loginForm {
-    display: flex;
-    flex-direction: column;
-    margin: 0 40px;
-}
+/**
+ * Login section
+ */
+.login-with-fb,
+form { width: 100%; }
 
-.input-box {
-    position: relative;
-    margin-bottom: 6px;
-}
+.register,
+form { padding: 30px 20px; }
 
-#email, #password {
+.login-with-fb { padding: 30px 20px 20px 20px; }
+
+form .sr-only { display: none; }
+
+form input {
     background-color: #fafafa;
     border: 1px solid #dbdbdb;
     border-radius: 3px;
     color: #262626;
-    font-size: 14px;
-    padding: 9px 0 7px 8px;
+    margin-bottom: 8px;
+    padding: 10px 10px;
     width: 100%;
-    height: 36px;
+    font-size: 14px;
+}
+
+form input::placeholder {
+    color: #8e8e8e;
+}
+
+form input:focus {
+    border: 1px solid #a8a8a8;
     outline: none;
 }
 
-#email:focus, #password:focus {
-    border-color: #a8a8a8;
-}
-
-label {
-    position: absolute;
-    left: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #8e8e8e;
-    font-size: 14px;
-    pointer-events: none;
-    transition: 0.2s ease all;
-}
-
-#email:focus + label, 
-#email:not(:placeholder-shown) + label,
-#password:focus + label, 
-#password:not(:placeholder-shown) + label {
-    top: 4px;
-    font-size: 10px;
-    transform: translateY(0);
-}
-
-button[type="submit"] {
+form button {
     background-color: #0095f6;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-weight: 600;
-    font-size: 14px;
-    margin: 8px 0;
-    padding: 8px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    height: 35px;
+    margin-top: 10px;
+    width: 100%;
     cursor: pointer;
     opacity: 0.7;
     transition: opacity 0.2s;
 }
 
-button[type="submit"]:hover {
+form button:hover {
     opacity: 1;
 }
 
-.divider {
-    display: flex;
-    align-items: center;
-    margin: 10px 40px;
-}
-
-.divider::before, .divider::after {
-    content: "";
-    flex: 1;
-    height: 1px;
+/**
+ * Separator login form from login with fb
+ */
+.separator span {
     background-color: #dbdbdb;
+    height: 1px;
+    width: calc(100% - 10px);
 }
 
-.divider span {
+.separator .or {
     color: #8e8e8e;
+    font-weight: bold;
     font-size: 13px;
-    font-weight: 600;
-    padding: 0 18px;
 }
 
-.facebook-login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 8px 40px;
+.separator { padding: 0 20px; }
+.separator span:first-child { margin-right: 10px;}
+.separator span:last-child { margin-left: 10px;}
+
+/**
+ * Login with fb section
+ */
+.login-with-fb a { 
+    color: #385185; 
 }
 
-.facebook-login a {
-    color: #385185;
-    font-weight: 600;
-    font-size: 14px;
-    text-decoration: none;
-}
+.login-with-fb > a { font-size: 12px; }
+.login-with-fb div a { font-weight: bold; }
+.login-with-fb div { margin-bottom: 15px; }
 
-.facebook-icon {
-    margin-right: 8px;
+.login-with-fb img {
     width: 16px;
     height: 16px;
+    margin-right: 8px;
+    vertical-align: middle;
 }
 
-.forgot-password {
-    text-align: center;
-    margin: 12px 40px;
-}
-
-.forgot-password a {
-    color: #385185;
-    font-size: 12px;
-    text-decoration: none;
-}
-
-.signup-box {
-    background-color: white;
-    border: 1px solid #dbdbdb;
-    border-radius: 1px;
-    padding: 20px;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.signup-box p {
-    font-size: 14px;
-    margin: 0;
-}
-
-.signup-box a {
+/**
+ * Register section
+ */
+.register * { font-size: 14px; }
+.register a { 
     color: #0095f6;
-    font-weight: 600;
-    text-decoration: none;
+    font-weight: bold;
 }
 
-.app-download {
-    margin-top: 20px;
-    width: 100%;
+.register p { margin-right: 5px; }
+
+/**
+ * App download
+ */
+.app-download { padding: 15px; }
+.app-download p { padding: 10px 0; font-size: 14px; }
+.app-download img { 
+    height: 40px; 
+    margin: 0 5px;
+    cursor: pointer;
 }
 
-.app-download p {
+/**
+ * Footer
+ */
+footer {
+    margin: 0 auto 30px auto;
+    max-width: 935px;
+}
+footer ul { margin-bottom: 20px; }
+footer ul li { margin: 0 10px 10px; } 
+footer ul li a { color: #385185; }
+footer .copyright { color: #8e8e8e; }
+footer ul li a,
+footer .copyright { 
+    font-weight: bold;
     text-align: center;
-    font-size: 14px;
-    margin: 10px 0;
+    text-transform: uppercase;
+    font-size: 12px;
 }
 
-.app-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-}
+/**
+ * Media queries
+ */
 
-.app-button {
-    height: 40px;
-    width: 136px;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.app-store {
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge_ES_RGB_blk_100217.svg/1200px-Download_on_the_App_Store_Badge_ES_RGB_blk_100217.svg.png");
-}
-
-.google-play {
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_ES.svg/1200px-Google_Play_Store_badge_ES.svg.png");
+@media screen and (max-width: 767px) {
+    main { margin: 30px auto 50px auto; }
+    footer .copyright,
+    footer ul li a { font-size: 13px; }
+    
+    #mobile {
+        display: none;
+    }
+    
+    #auth {
+        margin: 0 auto;
+    }
 }
