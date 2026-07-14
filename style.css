@@ -1,108 +1,189 @@
-/* style.css */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
-  background-color: #f5f5f5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #262626;
 }
 
-.login-container {
-  width: 100%;
-  max-width: 400px;
-  padding: 20px;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
 }
 
 .login-box {
-  background: #fff;
-  border-radius: 12px;
-  padding: 40px 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  text-align: center;
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    border-radius: 1px;
+    padding: 10px 0;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.login-header {
+    text-align: center;
+    margin: 36px 0 12px;
 }
 
 .logo {
-  width: 120px;
-  margin-bottom: 20px;
+    height: 51px;
+    margin-bottom: 12px;
 }
 
-h1 {
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 30px;
-  color: #202124;
+.form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 40px;
 }
 
-.input-box {
-  position: relative;
-  margin-bottom: 25px;
-  text-align: left;
+.form-group {
+    position: relative;
+    margin-bottom: 6px;
 }
 
-.input-box input {
-  width: 100%;
-  padding: 14px 12px;
-  border: 1px solid #dadce0;
-  border-radius: 6px;
-  font-size: 16px;
-  outline: none;
-  transition: border-color 0.2s;
+.form-input {
+    background-color: #fafafa;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    color: #262626;
+    font-size: 14px;
+    padding: 9px 0 7px 8px;
+    width: 100%;
+    height: 36px;
+    outline: none;
 }
 
-.input-box input:focus {
-  border-color: #1a73e8;
+.form-input:focus {
+    border-color: #a8a8a8;
 }
 
-.input-box label {
-  position: absolute;
-  top: 50%;
-  left: 12px;
-  transform: translateY(-50%);
-  font-size: 16px;
-  color: #5f6368;
-  pointer-events: none;
-  transition: 0.2s ease all;
+.login-button {
+    background-color: #0095f6;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 8px 40px;
+    padding: 8px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
 }
 
-.input-box input:focus + label,
-.input-box input:not(:placeholder-shown) + label {
-  top: 4px;
-  font-size: 12px;
-  color: #1a73e8;
-  background: #fff;
-  padding: 0 4px;
+.login-button:hover {
+    opacity: 1;
 }
 
-button {
-  width: 100%;
-  padding: 14px;
-  background: #1a73e8;
-  color: #fff;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background 0.2s;
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 10px 40px;
 }
 
-button:hover {
-  background: #1669c1;
+.divider::before, .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #dbdbdb;
 }
 
-@media (max-width: 480px) {
-  .login-box {
-    padding: 30px 20px;
-  }
+.divider span {
+    color: #8e8e8e;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0 18px;
+}
 
-  .logo {
-    width: 100px;
-  }
+.facebook-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 40px;
+}
+
+.facebook-login a {
+    color: #385185;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.facebook-icon {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+}
+
+.forgot-password {
+    text-align: center;
+    margin: 12px 40px;
+}
+
+.forgot-password a {
+    color: #385185;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.signup-box {
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    border-radius: 1px;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.signup-box p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.signup-box a {
+    color: #0095f6;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.app-download {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.app-download p {
+    text-align: center;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.app-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.app-button {
+    height: 40px;
+    width: 136px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.app-store {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge_ES_RGB_blk_100217.svg/1200px-Download_on_the_App_Store_Badge_ES_RGB_blk_100217.svg.png");
+}
+
+.google-play {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_ES.svg/1200px-Google_Play_Store_badge_ES.svg.png");
 }
