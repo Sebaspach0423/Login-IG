@@ -14,7 +14,7 @@ body {
     color: #262626;
 }
 
-.container {
+.login-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,30 +28,26 @@ body {
     padding: 10px 0;
     width: 100%;
     margin-bottom: 10px;
-}
-
-.login-header {
     text-align: center;
-    margin: 36px 0 12px;
 }
 
 .logo {
     height: 51px;
-    margin-bottom: 12px;
+    margin: 36px 0 12px;
 }
 
-.form {
+#loginForm {
     display: flex;
     flex-direction: column;
     margin: 0 40px;
 }
 
-.form-group {
+.input-box {
     position: relative;
     margin-bottom: 6px;
 }
 
-.form-input {
+#email, #password {
     background-color: #fafafa;
     border: 1px solid #dbdbdb;
     border-radius: 3px;
@@ -63,25 +59,45 @@ body {
     outline: none;
 }
 
-.form-input:focus {
+#email:focus, #password:focus {
     border-color: #a8a8a8;
 }
 
-.login-button {
+label {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8e8e8e;
+    font-size: 14px;
+    pointer-events: none;
+    transition: 0.2s ease all;
+}
+
+#email:focus + label, 
+#email:not(:placeholder-shown) + label,
+#password:focus + label, 
+#password:not(:placeholder-shown) + label {
+    top: 4px;
+    font-size: 10px;
+    transform: translateY(0);
+}
+
+button[type="submit"] {
     background-color: #0095f6;
     border: none;
     border-radius: 8px;
     color: white;
     font-weight: 600;
     font-size: 14px;
-    margin: 8px 40px;
+    margin: 8px 0;
     padding: 8px;
     cursor: pointer;
     opacity: 0.7;
     transition: opacity 0.2s;
 }
 
-.login-button:hover {
+button[type="submit"]:hover {
     opacity: 1;
 }
 
@@ -143,6 +159,7 @@ body {
     padding: 20px;
     width: 100%;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .signup-box p {
