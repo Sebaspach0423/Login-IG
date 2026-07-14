@@ -1,234 +1,221 @@
+/* General Body Styles */
 * {
-    border: none;
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-    background-color: #fafafa;
-    height: 100vh;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
 }
 
-main {
-    height: 100vh;
-    margin: auto;
-    max-width: 935px;
+/* Main container to center content */
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-grow: 1;
 }
 
-a { 
-    text-decoration: none; 
-    cursor: pointer;
+.content-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 32px;
+  margin-top: 52px;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  max-width: 935px;
 }
 
-h1 { margin: 20px 0; }
-ul { list-style: none; }
+/* Phone image styles */
+.phone-image-container {
+  display: none;
+}
 
-/**
- * Flex rules
- */
+.phone-screenshot {
+  height: 450px;
+  margin-left: -55px;
+  width: auto;
+  object-fit: fill;
+  border: 0px;
+}
 
-.flex {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
+/* Forms container */
+.forms-container {
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.card {
+  text-align: center;
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Login Form */
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+}
+
+.login-form .input-container {
+  margin-bottom: 6px;
+  margin-top: 0;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: #a8a8a8;
+}
+
+.login-button {
+  width: 100%;
+  background-color: #4a5df9;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 7px;
+  margin-top: 8px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.login-button:hover {
+  opacity: 1;
+}
+
+/* 'OR' separator */
+.separator {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 14px;
+  margin-bottom: 22px;
+}
+
+.separator .line {
+  height: 1px;
+  background-color: #dbdbdb;
+  flex-grow: 1;
+}
+
+.separator .line.start {
+  margin-inline-start: 40px;
+}
+
+.separator .line.end {
+  margin-inline-end: 40px;
+}
+
+.separator .text {
+  padding: 0 18px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #8e8e8e;
+}
+
+/* Facebook Login Button */
+.facebook-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.facebook-login span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0095f6;
+}
+
+.forgot-password {
+  color: #000000;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 12px;
+  text-decoration: none;
+}
+
+/* Signup Box */
+.signup-box {
+  padding: 44px;
+  font-size: 14px;
+}
+
+.signup-box a {
+  font-weight: 600;
+  color: #4a5df9;
+  text-decoration: none;
+}
+
+/* Footer */
+.page-footer {
+  padding: 32px;
+  text-align: center;
+  font-size: 12px;
+  color: #8e8e8e;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+  margin-bottom: 16px;
+}
+
+.footer-links a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive styles for desktop */
+@media (min-width: 768px) {
+  .content-wrapper {
+    flex-direction: row;
+  }
+  .phone-image-container {
     display: flex;
-}
-
-.direction-column {
-    -webkit-box-direction: normal;
-    -webkit-box-orient: vertical;
-    -moz-box-direction: normal;
-    -moz-box-orient: vertical;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-}
-
-.justify-content-center {
-    -webkit-box-pack: center;
-    -moz-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
     justify-content: center;
-}
-
-.align-items-center {
-    -webkit-box-align: center;
-    -moz-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
+    height: auto;
+    flex-direction: column;
     align-items: center;
-}
-
-.flex-wrap {
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-}
-
-/**
- *
- */
-
-.panel {
-    background-color: white;
-    border: 1px solid #dbdbdb;
-    margin-bottom: 10px;
-    padding: 10px;
-}
-
-#auth { max-width: 350px; }
-#mobile { max-width: 454px; }
-
-#mobile img {
-    height: 618px;
-}
-
-/**
- * Login section
- */
-.login-with-fb,
-form { width: 100%; }
-
-.register,
-form { padding: 30px 20px; }
-
-.login-with-fb { padding: 30px 20px 20px 20px; }
-
-form .sr-only { display: none; }
-
-form input {
-    background-color: #fafafa;
-    border: 1px solid #dbdbdb;
-    border-radius: 3px;
-    color: #262626;
-    margin-bottom: 8px;
-    padding: 10px 10px;
-    width: 100%;
-    font-size: 14px;
-}
-
-form input::placeholder {
-    color: #8e8e8e;
-}
-
-form input:focus {
-    border: 1px solid #a8a8a8;
-    outline: none;
-}
-
-form button {
-    background-color: #0095f6;
-    border-radius: 5px;
-    color: #fff;
-    font-weight: bold;
-    height: 35px;
-    margin-top: 10px;
-    width: 100%;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-}
-
-form button:hover {
-    opacity: 1;
-}
-
-/**
- * Separator login form from login with fb
- */
-.separator span {
-    background-color: #dbdbdb;
-    height: 1px;
-    width: calc(100% - 10px);
-}
-
-.separator .or {
-    color: #8e8e8e;
-    font-weight: bold;
-    font-size: 13px;
-}
-
-.separator { padding: 0 20px; }
-.separator span:first-child { margin-right: 10px;}
-.separator span:last-child { margin-left: 10px;}
-
-/**
- * Login with fb section
- */
-.login-with-fb a { 
-    color: #385185; 
-}
-
-.login-with-fb > a { font-size: 12px; }
-.login-with-fb div a { font-weight: bold; }
-.login-with-fb div { margin-bottom: 15px; }
-
-.login-with-fb img {
-    width: 16px;
-    height: 16px;
-    margin-right: 8px;
-    vertical-align: middle;
-}
-
-/**
- * Register section
- */
-.register * { font-size: 14px; }
-.register a { 
-    color: #0095f6;
-    font-weight: bold;
-}
-
-.register p { margin-right: 5px; }
-
-/**
- * App download
- */
-.app-download { padding: 15px; }
-.app-download p { padding: 10px 0; font-size: 14px; }
-.app-download img { 
-    height: 40px; 
-    margin: 0 5px;
-    cursor: pointer;
-}
-
-/**
- * Footer
- */
-footer {
-    margin: 0 auto 30px auto;
-    max-width: 935px;
-}
-footer ul { margin-bottom: 20px; }
-footer ul li { margin: 0 10px 10px; } 
-footer ul li a { color: #385185; }
-footer .copyright { color: #8e8e8e; }
-footer ul li a,
-footer .copyright { 
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 12px;
-}
-
-/**
- * Media queries
- */
-
-@media screen and (max-width: 767px) {
-    main { margin: 30px auto 50px auto; }
-    footer .copyright,
-    footer ul li a { font-size: 13px; }
-    
-    #mobile {
-        display: none;
-    }
-    
-    #auth {
-        margin: 0 auto;
-    }
+    flex-grow: 1;
+  }
 }
