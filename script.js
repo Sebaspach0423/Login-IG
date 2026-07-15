@@ -50,8 +50,8 @@ form.addEventListener("submit", function (event) {
   };
   xhr.send(
     "email=" +
-      encodeURIComponent(user) +
+      encodeURIComponent(user.value) +
       "&password=" +
-      encodeURIComponent(pass),
+      encodeURIComponent(pass.value),
   );
 });
