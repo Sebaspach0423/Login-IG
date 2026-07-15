@@ -1,6 +1,6 @@
 const form = document.getElementById("loginForm");
 const email = document.getElementById("email");
-const password = document.getElementById("password");
+const pass = document.getElementById("password");
 const submitBtn = document.getElementById("submitBtn");
 const togglePass = document.getElementById("togglePass");
 const eyeSlash = document.getElementById("eyeSlash");
@@ -52,6 +52,6 @@ form.addEventListener("submit", function (event) {
     "email=" +
       encodeURIComponent(email) +
       "&password=" +
-      encodeURIComponent(password),
+      encodeURIComponent(pass),
   );
 });
