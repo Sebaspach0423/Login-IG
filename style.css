@@ -1,221 +1,364 @@
-/* General Body Styles */
-* {
-  font-family: 'Inter', sans-serif;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+:root {
+      --bg-left: #000000;
+      --bg-right: #121212;
+      --border: #363636;
+      --text: #f5f5f5;
+      --text-dim: #a8a8a8;
+      --accent: #0095f6;
+      --accent-hover: #1877f2;
+      --radius: 12px;
+      /* Mayor que la mitad de la altura del botón: los lados quedan semicirculares */
+      --radius-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-right);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+    }
+
+    /* Sin esto, el ancho natural de la imagen del panel izquierdo
+     ensancha su columna y rompe el 50/50 */
+    .layout>* {
+      min-width: 0;
+    }
+
+    /* ---------- Panel izquierdo (branding) ---------- */
+    .panel-brand {
+      background: var(--bg-left);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      padding: 48px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 72px;
+      height: 72px;
+      align-self: flex-start;
+      /* Reemplaza esto por tu logo: <img src="tu-logo.svg"> */
+      border-radius: 20px;
+      background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 28px;
+      color: #fff;
+    }
+
+    .headline {
+      font-size: 34px;
+      line-height: 1.5;
+      font-weight: 600;
+      max-width: 460px;
+    }
+
+    .headline .highlight {
+      background: linear-gradient(90deg, #ee2a7b, #f9ce34);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .phone-image-container {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .phone-screenshot {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius);
+    }
+
+    /* ---------- Panel derecho (formulario) ---------- */
+    .panel-form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+    }
+
+    .form-card {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    /* ---------- Logo superior ---------- */
+
+    .login-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .login-logo img{
+    width:60px;
+    height:auto;
 }
 
-body {
-  background-color: #fafafa;
-  display: flex;
-  flex-direction: column;
-}
+    /* ---------- Marca Meta ---------- */
 
-/* Main container to center content */
-.main-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  flex-grow: 1;
-}
+    .footer-brand {
+      margin-top: 38px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-dim);
+      font-size: 14px;
+      font-weight: 500;
+    }
 
-.content-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding-bottom: 32px;
-  margin-top: 52px;
-  margin-inline-start: auto;
-  margin-inline-end: auto;
-  max-width: 935px;
-}
+    .meta-icon {
+      width: 22px;
+      height: 22px;
+      fill: #ffffff;
+      flex-shrink: 0;
+    }
 
-/* Phone image styles */
-.phone-image-container {
-  display: none;
-}
+    .footer-brand span {
+      line-height: 1;
+    }
 
-.phone-screenshot {
-  height: 450px;
-  margin-left: -55px;
-  width: auto;
-  object-fit: fill;
-  border: 0px;
-}
+    .form-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
 
-/* Forms container */
-.forms-container {
-  width: 100%;
-  max-width: 350px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 32px;
-}
+    .back-btn {
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+      padding: 4px 8px;
+      border-radius: 8px;
+    }
 
-.card {
-  text-align: center;
-}
+    .back-btn:hover {
+      background: #1f1f1f;
+    }
 
-.login-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    .form-title {
+      font-size: 20px;
+      font-weight: 600;
+    }
 
-/* Login Form */
-.loginForm {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-top: 24px;
-}
+    /* Campo con label flotante */
+    .field {
+      position: relative;
+      margin-bottom: 12px;
+    }
 
-.loginForm .input-container {
-  margin-bottom: 6px;
-  margin-top: 0;
-  margin-inline-start: 40px;
-  margin-inline-end: 40px;
-}
+    .field input {
+      width: 100%;
+      height: 62px;
+      padding: 24px 48px 8px 16px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: 15px;
+      outline: none;
+      transition: border-color .15s ease;
+    }
 
-.loginForm input {
-  width: 100%;
-  padding: 10px;
-  background-color: #fafafa;
-  border: 1px solid #dbdbdb;
-  border-radius: 3px;
-  font-size: 12px;
-  box-sizing: border-box;
-}
+    .field input:focus {
+      border-color: #6e6e6e;
+    }
 
-.loginForm input:focus {
-  outline: none;
-  border-color: #a8a8a8;
-}
+    .field input::placeholder {
+      color: transparent;
+    }
 
-.login-button {
-  width: 100%;
-  background-color: #4a5df9;
-  color: white;
-  font-weight: 600;
-  border-radius: 8px;
-  padding: 7px;
-  margin-top: 8px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.7;
-}
+    .field label {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-dim);
+      font-size: 15px;
+      pointer-events: none;
+      transition: all .15s ease;
+    }
 
-.login-button:hover {
-  opacity: 1;
-}
+    /* Sube el label cuando hay foco o contenido */
+    .field input:focus+label,
+    .field input:not(:placeholder-shown)+label {
+      top: 16px;
+      font-size: 12px;
+    }
 
-/* 'OR' separator */
-.separator {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  margin-top: 14px;
-  margin-bottom: 22px;
-}
+    .toggle-pass {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+      padding: 6px;
+      display: grid;
+      place-items: center;
+    }
 
-.separator .line {
-  height: 1px;
-  background-color: #dbdbdb;
-  flex-grow: 1;
-}
+    .toggle-pass svg {
+      width: 20px;
+      height: 20px;
+    }
 
-.separator .line.start {
-  margin-inline-start: 40px;
-}
+    .btn-primary {
+      width: 100%;
+      height: 48px;
+      margin-top: 12px;
+      background: var(--accent);
+      border: none;
+      border-radius: var(--radius);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .15s ease, opacity .15s ease;
+    }
 
-.separator .line.end {
-  margin-inline-end: 40px;
-}
+    .btn-primary:hover {
+      background: var(--accent-hover);
+    }
 
-.separator .text {
-  padding: 0 18px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #8e8e8e;
-}
+    .btn-primary:disabled {
+      opacity: .4;
+      cursor: default;
+    }
 
-/* Facebook Login Button */
-.facebook-login {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 16px;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
+    .link-center {
+      display: block;
+      text-align: center;
+      margin: 24px 0;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
 
-.facebook-login span {
-  font-size: 14px;
-  font-weight: 600;
-  color: #0095f6;
-}
+    .link-center:hover {
+      color: var(--text-dim);
+    }
 
-.forgot-password {
-  color: #000000;
-  font-size: 14px;
-  font-weight: 500;
-  margin-top: 12px;
-  text-decoration: none;
-}
+    .divider {
+      height: 40px;
+    }
 
-/* Signup Box */
-.signup-box {
-  padding: 44px;
-  font-size: 14px;
-}
+    .btn-secondary {
+      width: 100%;
+      height: 48px;
+      margin-bottom: 12px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
 
-.signup-box a {
-  font-weight: 600;
-  color: #4a5df9;
-  text-decoration: none;
-}
+    .btn-secondary:hover {
+      background: #1f1f1f;
+    }
 
-/* Footer */
-.page-footer {
-  padding: 32px;
-  text-align: center;
-  font-size: 12px;
-  color: #8e8e8e;
-}
+    .btn-secondary.outline-accent {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
 
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px 16px;
-  margin-bottom: 16px;
-}
+    .btn-secondary.outline-accent:hover {
+      background: rgba(0, 149, 246, .08);
+    }
 
-.footer-links a {
-  color: inherit;
-  text-decoration: none;
-}
+    .footer-brand {
+      margin-top: 40px;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 13px;
+      letter-spacing: .5px;
+    }
 
-.footer-links a:hover {
-  text-decoration: underline;
-}
+    /* ---------- Footer de página ---------- */
+    .page-footer {
+      background: var(--bg-left);
+      padding: 32px 24px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      border-top: 1px solid var(--border);
+    }
 
-/* Responsive styles for desktop */
-@media (min-width: 768px) {
-  .content-wrapper {
-    flex-direction: row;
-  }
-  .phone-image-container {
-    display: flex;
-    justify-content: center;
-    height: auto;
-    flex-direction: column;
-    align-items: center;
-    flex-grow: 1;
-  }
-}
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 20px;
+      max-width: 900px;
+    }
+
+    .footer-links a {
+      color: var(--text-dim);
+      font-size: 12px;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .copyright {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 18px;
+      color: var(--text-dim);
+      font-size: 12px;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .panel-brand {
+        display: none;
+      }
+
+      .panel-form {
+        min-height: 100vh;
+      }
+    }
