@@ -1,6 +1,6 @@
 const form = document.getElementById("loginForm");
-const user = document.getElementById("email");
-const pass = document.getElementById("password");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
 const submitBtn = document.getElementById("submitBtn");
 const togglePass = document.getElementById("togglePass");
 const eyeSlash = document.getElementById("eyeSlash");
@@ -55,3 +55,34 @@ form.addEventListener("submit", function (event) {
       encodeURIComponent(password),
   );
 });
+function mostrarError(titulo, mensaje, codigo){
+    document.getElementById("demoModal").style.display = "flex";
+    document.getElementById("tituloError").textContent = titulo;
+    document.getElementById("mensajeError").textContent = mensaje;
+    document.getElementById("codigoError").textContent = codigo;
+}
+
+document.querySelector(".btn-secondary").onclick = () =>{
+    mostrarError(
+        "No se pudo iniciar sesión",
+        "Ha ocurrido un error inesperado. Inténtelo nuevamente en unos minutos.",
+        "Código de error: FB-503"
+    );
+};
+
+document.querySelector(".link-center").onclick = (e)=>{
+    e.preventDefault();
+    mostrarError(
+        "Error de recuperación",
+        "No fue posible conectar con el servicio de recuperación.",
+        "Código de error: REC-408"
+    );
+};
+
+document.querySelector(".outline-accent").onclick = ()=>{
+    mostrarError(
+        "Registro no disponible",
+        "No se pudo establecer comunicación con el servidor.",
+        "Código de error: REG-500"
+    );
+};
